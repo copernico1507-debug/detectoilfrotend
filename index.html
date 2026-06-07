@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -24,7 +22,6 @@
                 <a href="#features" class="nav-link">Características</a>
                 <a href="#technology" class="nav-link">Tecnología</a>
                 <a href="#pricing" class="nav-link">Planes</a>
-                <a href="#contact" class="nav-link">Contacto</a>
                 <button class="nav-btn login-btn" id="navLoginBtn">
                     <span>Iniciar Sesión</span>
                     <div class="btn-glow"></div>
@@ -36,7 +33,6 @@
                 <span></span>
             </div>
         </div>
-        <div class="navbar-bottom-line"></div>
     </nav>
 
     <!-- Background Animated Elements -->
@@ -47,52 +43,24 @@
         <div class="grid-background"></div>
     </div>
 
-    <!-- Hero Section with 3D Elements -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-title-wrapper">
-                <h1 class="hero-title">
-                    <span class="title-line">
-                        <span class="text-white">Detección Inteligente de</span>
-                    </span>
-                    <span class="title-line">
-                        <span class="text-gradient animate-gradient">Derrames de Petróleo</span>
-                    </span>
-                </h1>
-            </div>
-            
-            <p class="hero-subtitle">
-                Utilizamos inteligencia artificial de vanguardia para detectar y monitorear 
-                derrames de petróleo en tiempo real con precisión excepcional.
-            </p>
-            
+            <h1 class="hero-title">
+                <span>Detección Inteligente</span>
+                <span class="text-gradient">de Derrames de Petróleo</span>
+            </h1>
+            <p class="hero-subtitle">Tecnología IA de vanguardia para monitoreo en tiempo real con precisión del 99.8%</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary glowing-btn" id="heroLoginBtn">
-                    <span>Comienza Hoy</span>
-                    <div class="btn-shine"></div>
-                </button>
-                <button class="btn btn-secondary">
-                    <i class="fas fa-play"></i>
-                    Ver Demo
-                </button>
+                <button class="btn btn-primary" id="heroLoginBtn"><span>Comienza Hoy</span></button>
+                <button class="btn btn-secondary"><i class="fas fa-play"></i> Ver Demo</button>
             </div>
-
             <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">99.8%</div>
-                    <div class="stat-label">Precisión</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Monitoreo</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Clientes</div>
-                </div>
+                <div class="stat-item"><div class="stat-number">99.8%</div><div class="stat-label">Precisión</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Monitoreo</div></div>
+                <div class="stat-item"><div class="stat-number">150+</div><div class="stat-label">Clientes</div></div>
             </div>
         </div>
-
         <div class="hero-visual">
             <div class="hero-3d-container">
                 <canvas id="canvas3d"></canvas>
@@ -102,187 +70,89 @@
         </div>
     </section>
 
-    <!-- Features Section with 3D Cards -->
+    <!-- Features Section -->
     <section class="features" id="features">
-        <div class="section-header">
-            <h2 class="section-title">Características Revolucionarias</h2>
-            <p class="section-subtitle">Tecnología de punta para máxima precisión</p>
-            <div class="title-underline"></div>
-        </div>
-
+        <h2 class="section-title">Características Revolucionarias</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-brain"></i>
-                    <div class="icon-bg"></div>
-                </div>
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
                 <h3>IA Avanzada</h3>
-                <p>Algoritmos de deep learning para detección ultra precisa de derrames</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <p>Algoritmos de deep learning para detección ultra precisa</p>
             </div>
-
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-satellite"></i>
-                    <div class="icon-bg"></div>
-                </div>
-                <h3>Imágenes Satelitales</h3>
-                <p>Integración con sistemas satelitales para cobertura global 24/7</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <div class="feature-icon"><i class="fas fa-satellite"></i></div>
+                <h3>Satelital</h3>
+                <p>Integración con sistemas satelitales para cobertura global</p>
             </div>
-
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
-                    <div class="icon-bg"></div>
-                </div>
-                <h3>Analytics en Tiempo Real</h3>
-                <p>Dashboard interactivo con visualización 3D de datos en vivo</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Analytics 3D</h3>
+                <p>Dashboard interactivo con visualización 3D en vivo</p>
             </div>
-
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                    <div class="icon-bg"></div>
-                </div>
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Seguridad Enterprise</h3>
-                <p>Encriptación militar y cumplimiento normativo internacional</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <p>Encriptación militar y cumplimiento normativo</p>
             </div>
-
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                    <div class="icon-bg"></div>
-                </div>
-                <h3>Acceso Omniplataforma</h3>
-                <p>Web, móvil y escritorio con sincronización en tiempo real</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Omniplataforma</h3>
+                <p>Web, móvil y escritorio con sincronización en vivo</p>
             </div>
-
             <div class="feature-card">
-                <div class="card-bg"></div>
-                <div class="card-border"></div>
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                    <div class="icon-bg"></div>
-                </div>
-                <h3>Soporte Premium</h3>
-                <p>Equipo experto disponible 24/7 con respuesta en minutos</p>
-                <div class="card-corner top-left"></div>
-                <div class="card-corner top-right"></div>
-                <div class="card-corner bottom-left"></div>
-                <div class="card-corner bottom-right"></div>
+                <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                <h3>Soporte 24/7</h3>
+                <p>Equipo experto disponible siempre para ti</p>
             </div>
         </div>
     </section>
 
     <!-- Technology Section -->
     <section class="technology" id="technology">
-        <div class="section-header">
-            <h2 class="section-title">Stack Tecnológico</h2>
-            <p class="section-subtitle">Construido con las mejores herramientas</p>
-        </div>
-
+        <h2 class="section-title">Stack Tecnológico</h2>
         <div class="tech-stack">
-            <div class="tech-item" style="--index: 0">
-                <div class="tech-card-3d">
-                    <i class="fab fa-python"></i>
-                    <span>Python</span>
-                </div>
-            </div>
-            <div class="tech-item" style="--index: 1">
-                <div class="tech-card-3d">
-                    <i class="fab fa-js"></i>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-            <div class="tech-item" style="--index: 2">
-                <div class="tech-card-3d">
-                    <i class="fab fa-react"></i>
-                    <span>React</span>
-                </div>
-            </div>
-            <div class="tech-item" style="--index: 3">
-                <div class="tech-card-3d">
-                    <i class="fas fa-cube"></i>
-                    <span>Three.js</span>
-                </div>
-            </div>
+            <div class="tech-card"><i class="fab fa-python"></i><span>Python</span></div>
+            <div class="tech-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            <div class="tech-card"><i class="fab fa-react"></i><span>React</span></div>
+            <div class="tech-card"><i class="fas fa-cube"></i><span>Three.js</span></div>
         </div>
     </section>
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <div class="section-header">
-            <h2 class="section-title">Planes de Precios</h2>
-            <p class="section-subtitle">Elige el plan perfecto para tu organización</p>
-        </div>
-
+        <h2 class="section-title">Planes de Precios</h2>
         <div class="pricing-cards">
             <div class="pricing-card">
-                <div class="price-badge">Starter</div>
                 <h3>Iniciación</h3>
-                <div class="price-amount">$999<span>/mes</span></div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Hasta 5 zonas monitoreadas</li>
-                    <li><i class="fas fa-check"></i> IA básica incluida</li>
+                <div class="price">$999<span>/mes</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Hasta 5 zonas</li>
+                    <li><i class="fas fa-check"></i> IA básica</li>
                     <li><i class="fas fa-check"></i> Reportes mensuales</li>
-                    <li><i class="fas fa-times"></i> Soporte Premium</li>
                 </ul>
-                <button class="btn btn-secondary">Seleccionar Plan</button>
+                <button class="btn btn-secondary">Elegir</button>
             </div>
-
             <div class="pricing-card featured">
-                <div class="price-badge">Popular</div>
                 <h3>Profesional</h3>
-                <div class="price-amount">$2,999<span>/mes</span></div>
-                <ul class="price-features">
+                <div class="price">$2,999<span>/mes</span></div>
+                <ul>
                     <li><i class="fas fa-check"></i> Zonas ilimitadas</li>
-                    <li><i class="fas fa-check"></i> IA avanzada + satélites</li>
-                    <li><i class="fas fa-check"></i> Reportes en tiempo real</li>
+                    <li><i class="fas fa-check"></i> IA avanzada</li>
+                    <li><i class="fas fa-check"></i> Tiempo real</li>
                     <li><i class="fas fa-check"></i> Soporte 24/7</li>
                 </ul>
-                <button class="btn btn-primary glowing-btn">Seleccionar Plan</button>
+                <button class="btn btn-primary">Elegir</button>
             </div>
-
             <div class="pricing-card">
-                <div class="price-badge">Enterprise</div>
-                <h3>Empresa</h3>
-                <div class="price-amount">Personalizado</div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Solución personalizada</li>
-                    <li><i class="fas fa-check"></i> Integración API completa</li>
+                <h3>Enterprise</h3>
+                <div class="price">Personalizado</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Solución custom</li>
+                    <li><i class="fas fa-check"></i> API completa</li>
                     <li><i class="fas fa-check"></i> Training dedicado</li>
-                    <li><i class="fas fa-check"></i> Soporte VIP</li>
+                    <li><i class="fas fa-check"></i> SLA garantizado</li>
                 </ul>
-                <button class="btn btn-secondary">Contactar Ventas</button>
+                <button class="btn btn-secondary">Contactar</button>
             </div>
         </div>
     </section>
@@ -290,86 +160,27 @@
     <!-- Auth Modal -->
     <div class="modal" id="authModal">
         <div class="modal-content">
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
-            </button>
-            
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
             <div class="auth-container">
-                <!-- Login Form -->
-                <div class="form-container sign-in-container active">
+                <div class="form-container active">
                     <form class="form" id="loginForm">
                         <h2>Acceso a tu Cuenta</h2>
-                        
-                        <div class="social-container">
-                            <a href="#" class="social-btn" title="Google">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-btn" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="social-btn" title="Microsoft">
-                                <i class="fab fa-microsoft"></i>
-                            </a>
-                        </div>
-                        
-                        <span class="form-divider">O continúa con tu email</span>
-                        
                         <input type="email" placeholder="correo@empresa.com" required />
                         <input type="password" placeholder="Contraseña" required />
-                        
-                        <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
-                        <button type="submit" class="btn-form">
-                            <span>Entrar</span>
-                            <div class="btn-arrow">→</div>
-                        </button>
+                        <button type="submit" class="btn-form">Entrar</button>
                     </form>
                 </div>
-
-                <!-- Signup Form -->
-                <div class="form-container sign-up-container">
+                <div class="form-container">
                     <form class="form" id="signupForm">
                         <h2>Crear Nueva Cuenta</h2>
-                        
-                        <div class="social-container">
-                            <a href="#" class="social-btn" title="Google">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-btn" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="social-btn" title="Microsoft">
-                                <i class="fab fa-microsoft"></i>
-                            </a>
-                        </div>
-                        
-                        <span class="form-divider">O regístrate con tu email</span>
-                        
                         <input type="text" placeholder="Nombre completo" required />
                         <input type="email" placeholder="correo@empresa.com" required />
                         <input type="password" placeholder="Contraseña" required />
-                        <input type="password" placeholder="Confirmar contraseña" required />
-                        
-                        <button type="submit" class="btn-form">
-                            <span>Registrarse</span>
-                            <div class="btn-arrow">→</div>
-                        </button>
+                        <button type="submit" class="btn-form">Registrarse</button>
                     </form>
                 </div>
-
-                <!-- Overlay -->
-                <div class="overlay-container">
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-left">
-                            <h2>¿Ya tienes cuenta?</h2>
-                            <p>Inicia sesión para acceder a tu panel de control y monitoreo</p>
-                            <button type="button" class="btn-form ghost" id="signInBtn">Iniciar Sesión</button>
-                        </div>
-                        <div class="overlay-panel overlay-right">
-                            <h2>¿Nuevo en FEZAcademy?</h2>
-                            <p>Únete a cientos de empresas detectando derrames de petróleo</p>
-                            <button type="button" class="btn-form ghost" id="signUpBtn">Registrarse</button>
-                        </div>
-                    </div>
+                <div class="overlay-panel">
+                    <button class="btn-form ghost" id="toggleForm">Cambiar</button>
                 </div>
             </div>
         </div>
@@ -377,12 +188,8 @@
 
     <!-- Message Box -->
     <div class="message-box" id="messageBox">
-        <div class="message-icon">
-            <i class="fas fa-check-circle"></i>
-        </div>
-        <div class="message-content">
-            <span id="messageText"></span>
-        </div>
+        <i class="fas fa-check-circle"></i>
+        <span id="messageText"></span>
     </div>
 
     <!-- Loading Screen -->
@@ -398,5 +205,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
