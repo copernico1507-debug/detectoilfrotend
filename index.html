@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEZAcademy - Oil Detection Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-droplet"></i>
+                <span>FEZAcademy</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Inicio</a>
+                <a href="#features" class="nav-link">Características</a>
+                <a href="#about" class="nav-link">Acerca de</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+                <button class="nav-btn login-btn" id="navLoginBtn">Iniciar Sesión</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="text-white">Bienvenido a </span>
+                <span class="text-gradient">FEZAcademy</span>
+            </h1>
+            <p class="hero-subtitle">Plataforma avanzada de detección de derrames de petróleo con IA</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="heroLoginBtn">Comenzar Ahora</button>
+                <button class="btn btn-secondary">Más Información</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <canvas id="typewriterCanvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-title">
+            <h2>Características Principales</h2>
+            <p>Todo lo que necesitas para detectar y monitorear derrames de petróleo</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>IA Avanzada</h3>
+                <p>Algoritmos de machine learning de última generación para detección precisa</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-satellite"></i>
+                </div>
+                <h3>Análisis Satelital</h3>
+                <p>Integración con imágenes satelitales para monitoreo en tiempo real</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Reportes Detallados</h3>
+                <p>Análisis exhaustivos con visualización de datos interactiva</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Seguridad Garantizada</h3>
+                <p>Encriptación de nivel empresarial para proteger tus datos</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Acceso Móvil</h3>
+                <p>Aplicación responsive para monitoreo desde cualquier dispositivo</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Soporte 24/7</h3>
+                <p>Equipo de expertos disponible para asistirte en todo momento</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            
+            <div class="auth-container">
+                <!-- Login Form -->
+                <div class="form-container sign-in-container active">
+                    <form class="form" id="loginForm">
+                        <h2>Iniciar Sesión</h2>
+                        
+                        <div class="social-container">
+                            <a href="#" class="social-btn" title="Google">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        
+                        <span>O usa tu cuenta</span>
+                        
+                        <input type="email" placeholder="Correo electrónico" required />
+                        <input type="password" placeholder="Contraseña" required />
+                        
+                        <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+                        <button type="submit" class="btn-form">Entrar</button>
+                    </form>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="form-container sign-up-container">
+                    <form class="form" id="signupForm">
+                        <h2>Crear Cuenta</h2>
+                        
+                        <div class="social-container">
+                            <a href="#" class="social-btn" title="Google">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        
+                        <span>O usa tu correo para registrarte</span>
+                        
+                        <input type="text" placeholder="Nombre completo" required />
+                        <input type="email" placeholder="Correo electrónico" required />
+                        <input type="password" placeholder="Contraseña" required />
+                        <input type="password" placeholder="Confirmar contraseña" required />
+                        
+                        <button type="submit" class="btn-form">Registrarse</button>
+                    </form>
+                </div>
+
+                <!-- Overlay -->
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h2>¿Ya tienes cuenta?</h2>
+                            <p>Inicia sesión para acceder a tu panel de control</p>
+                            <button type="button" class="btn-form ghost" id="signInBtn">Iniciar Sesión</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h2>¿Nuevo aquí?</h2>
+                            <p>Regístrate y comienza a detectar derrames de petróleo</p>
+                            <button type="button" class="btn-form ghost" id="signUpBtn">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Box -->
+    <div class="message-box" id="messageBox"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
