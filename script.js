@@ -28,13 +28,15 @@ function initTypewriterCanvas() {
     const deltaTime = timestamp - lastTime;
     lastTime = timestamp;
 
-    ctx.fillStyle = "rgba(5, 1, 10, 0)";
+    // Clear canvas
+    ctx.fillStyle = "rgba(5, 1, 10, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const fontSize = Math.min(canvas.width / 12, 60);
     ctx.font = `bold ${fontSize}px Poppins, sans-serif`;
     ctx.textBaseline = "middle";
 
+    // Handle waiting period
     if (waitTimer > 0) {
       waitTimer -= deltaTime;
     } else {
@@ -59,17 +61,20 @@ function initTypewriterCanvas() {
       }
     }
 
+    // Handle cursor blink
     cursorTimer += deltaTime;
     if (cursorTimer > 500) {
       cursorVisible = !cursorVisible;
       cursorTimer = 0;
     }
 
+    // Calculate text position
     const totalFullWidth = ctx.measureText(fullText).width;
     let startX = (canvas.width - totalFullWidth) / 2;
     const y = canvas.height / 2;
     let currentX = startX;
 
+    // Draw typed characters
     for (let i = 0; i < charIndex; i++) {
       const char = fullText[i];
       const isPart2 = i >= textPart1.length;
@@ -87,6 +92,7 @@ function initTypewriterCanvas() {
       currentX += ctx.measureText(char).width;
     }
 
+    // Draw cursor
     if (cursorVisible) {
       ctx.shadowBlur = 0;
       ctx.fillStyle = charIndex > textPart1.length ? "#a855f7" : "#ffffff";
@@ -122,10 +128,12 @@ class AuthModal {
     this.navLoginBtn.addEventListener('click', () => this.open());
     this.heroLoginBtn.addEventListener('click', () => this.open());
 
+    // Close modal when clicking outside
     this.modal.addEventListener('click', (e) => {
       if (e.target === this.modal) this.close();
     });
 
+    // Form submissions
     this.loginForm.addEventListener('submit', (e) => this.handleLogin(e));
     this.signupForm.addEventListener('submit', (e) => this.handleSignup(e));
   }
@@ -154,7 +162,10 @@ class AuthModal {
     const email = this.loginForm.querySelector('input[type="email"]').value;
     showMessage(`Iniciando sesión con ${email}...`);
     console.log('Login:', email);
-    setTimeout(() => this.close(), 1500);
+    setTimeout(() => {
+      this.loginForm.reset();
+      this.close();
+    }, 1500);
   }
 
   handleSignup(e) {
@@ -162,7 +173,11 @@ class AuthModal {
     const name = this.signupForm.querySelector('input[type="text"]').value;
     showMessage(`¡Bienvenido ${name}! Tu cuenta ha sido creada.`);
     console.log('Signup:', name);
-    setTimeout(() => this.close(), 1500);
+    setTimeout(() => {
+      this.signupForm.reset();
+      this.close();
+      this.authContainer.classList.remove('active');
+    }, 1500);
   }
 }
 
@@ -225,7 +240,7 @@ function showMessage(text, duration = 3000) {
   setTimeout(() => {
     messageBox.classList.add('hide');
     setTimeout(() => {
-      messageBox.classList.remove('active');
+      messageBox.classList.remove('active', 'hide');
     }, 300);
   }, duration);
 }
@@ -262,17 +277,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.feature-card').forEach(card => {
-  observer.observe(card);
-});
-
-// ==================== INITIALIZE ON LOAD ====================
-document.addEventListener('DOMContentLoaded', () => {
-  initTypewriterCanvas();
-  new Navbar();
-  new AuthModal();
-
-  // Add fade-in animation to feature cards
+// ==================== ADD ANIMATION KEYFRAMES ====================
+function addAnimationStyles() {
   const style = document.createElement('style');
   style.textContent = `
     @keyframes fadeInUp {
@@ -287,16 +293,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
+}
+
+// ==================== INITIALIZE ON LOAD ====================
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize all components
+  addAnimationStyles();
+  initTypewriterCanvas();
+  new Navbar();
+  new AuthModal();
+
+  // Observe feature cards
+  document.querySelectorAll('.feature-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  console.log('FEZAcademy Frontend Loaded Successfully!');
 });
 
-// ==================== PERFORMANCE ====================
-// Lazy load images if any
+// ==================== LAZY LOAD IMAGES ====================
 if ('IntersectionObserver' in window) {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-        img.src = img.dataset.src;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
         observer.unobserve(img);
       }
     });
@@ -304,3 +328,27 @@ if ('IntersectionObserver' in window) {
 
   document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
 }
+
+// ==================== PERFORMANCE OPTIMIZATION ====================
+// Debounce function for resize events
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Handle window resize with debouncing
+window.addEventListener('resize', debounce(() => {
+  // Re-initialize canvas if needed
+  const canvas = document.getElementById('typewriterCanvas');
+  if (canvas) {
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+  }
+}, 250));
